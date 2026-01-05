@@ -37,7 +37,7 @@ This repository contains an end-to-end data analytics project analyzing the Netf
 1.  **Clone the Repository:**
     
     ```
-    git clone [https://github.com/your-username/netflix-analytics.git](https://github.com/your-username/netflix-analytics.git)
+    git clone [https://github.com/abdaahads/dataviz_assignment](https://github.com/abdaahads/dataviz_assignment)
     cd netflix-analytics
     ```
     
