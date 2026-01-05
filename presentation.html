@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Netflix Data Analytics Presentation</title>
+    <style>
+        body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; margin: 0; padding: 0; overflow: hidden; background-color: #141414; color: #fff; }
+        .slide { display: none; height: 100vh; width: 100vw; flex-direction: column; justify-content: center; align-items: center; text-align: center; padding: 20px; box-sizing: border-box; }
+        .active { display: flex; }
+        h1 { font-size: 3.5rem; color: #e50914; margin-bottom: 20px; text-transform: uppercase; }
+        h2 { font-size: 2.5rem; color: #f5f5f1; margin-bottom: 30px; border-bottom: 2px solid #e50914; display: inline-block; }
+        p, li { font-size: 1.5rem; line-height: 1.6; max-width: 800px; color: #e5e5e5; }
+        ul { text-align: left; display: inline-block; }
+        .controls { position: fixed; bottom: 20px; right: 20px; z-index: 10; }
+        button { background-color: #e50914; color: white; border: none; padding: 10px 20px; font-size: 1rem; cursor: pointer; border-radius: 4px; margin-left: 10px; }
+        button:hover { background-color: #b20710; }
+        .highlight { color: #e50914; font-weight: bold; }
+        .footer { position: fixed; bottom: 10px; left: 20px; font-size: 0.9rem; color: #666; }
+    </style>
+</head>
+<body>
+
+    <!-- Slide 1: Title -->
+    <div class="slide active" id="slide1">
+        <h1>Big Data Analytics</h1>
+        <h2>End-to-End Analysis: Netflix Dataset</h2>
+        <p>By: [Student Name]</p>
+        <p>Date: [Current Date]</p>
+    </div>
+
+    <!-- Slide 2: Agenda -->
+    <div class="slide" id="slide2">
+        <h2>Agenda</h2>
+        <ul>
+            <li>Project Overview & Objectives</li>
+            <li>Data Preparation Workflow</li>
+            <li>SQL Analysis & Queries</li>
+            <li>Key Visual Insights</li>
+            <li>Business Recommendations</li>
+        </ul>
+    </div>
+
+    <!-- Slide 3: Data Overview -->
+    <div class="slide" id="slide3">
+        <h2>Data Overview & Preparation</h2>
+        <ul>
+            <li><strong>Source:</strong> Kaggle (Netflix Movies & TV Shows)</li>
+            <li><strong>Tool:</strong> Python (Pandas) for cleaning.</li>
+            <li><strong>Key Actions:</strong>
+                <ul>
+                    <li>Handled missing values in Directors/Cast.</li>
+                    <li>Converted Timestamps for trend analysis.</li>
+                    <li>Split content into <span class="highlight">Movies</span> vs <span class="highlight">TV Shows</span>.</li>
+                </ul>
+            </li>
+        </ul>
+    </div>
+
+    <!-- Slide 4: Insight 1 -->
+    <div class="slide" id="slide4">
+        <h2>Insight: Content Distribution</h2>
+        <p>The library is dominated by Movies.</p>
+        <ul>
+            <li><strong>Movies:</strong> ~70%</li>
+            <li><strong>TV Shows:</strong> ~30%</li>
+        </ul>
+        <br>
+        <p style="font-size: 1rem; color: #999;">(Placeholder for Pie Chart Visual)</p>
+    </div>
+
+    <!-- Slide 5: Insight 2 -->
+    <div class="slide" id="slide5">
+        <h2>Insight: Geographic Dominance</h2>
+        <p>The top 3 content producing nations are:</p>
+        <ol>
+            <li><span class="highlight">United States</span> (Dominant)</li>
+            <li>India (Rapid Growth)</li>
+            <li>United Kingdom</li>
+        </ol>
+        <p>Strategy: Continue localization in emerging markets.</p>
+    </div>
+
+    <!-- Slide 6: Recommendations -->
+    <div class="slide" id="slide6">
+        <h2>Business Recommendations</h2>
+        <ul>
+            <li>Increase <strong>TV Show</strong> production to improve user retention/binge-watching.</li>
+            <li>Expand <strong>local content libraries</strong> in Asia and South America.</li>
+            <li>Address the gap in <strong>Family/Children</strong> programming.</li>
+        </ul>
+    </div>
+
+    <!-- Slide 7: Conclusion -->
+    <div class="slide" id="slide7">
+        <h1>Thank You</h1>
+        <p>Questions?</p>
+        <p style="margin-top: 50px; font-size: 1rem;">End-to-End Analytics Project</p>
+    </div>
+
+    <div class="controls">
+        <button onclick="prevSlide()">❮ Previous</button>
+        <button onclick="nextSlide()">Next ❯</button>
+    </div>
+    
+    <div class="footer">Netflix Analytics Assignment</div>
+
+    <script>
+        let currentSlide = 0;
+        const slides = document.querySelectorAll('.slide');
+
+        function showSlide(n) {
+            slides[currentSlide].classList.remove('active');
+            currentSlide = (n + slides.length) % slides.length;
+            slides[currentSlide].classList.add('active');
+        }
+
+        function nextSlide() { showSlide(currentSlide + 1); }
+        function prevSlide() { showSlide(currentSlide - 1); }
+
+        // Keyboard navigation
+        document.addEventListener('keydown', function(event) {
+            if (event.key === "ArrowRight") nextSlide();
+            if (event.key === "ArrowLeft") prevSlide();
+        });
+    </script>
+</body>
+</html>
